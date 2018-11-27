@@ -231,7 +231,17 @@ public class Main {
 
     //ID 20160193
     int[] shuffle(int[] a){
-        int[] returnValue = new int[0];
+        Random r = new Random();
+        int[] returnValue = new int[a.length];
+        System.arraycopy(a, 0, returnValue, 0, a.length);
+
+        int j, temp;
+        for (int i = 0; i < returnValue.length; i++){
+            j = r.nextInt(returnValue.length);
+            temp = returnValue[i];
+            returnValue[i] = returnValue[j];
+            returnValue[j] = temp;
+        }
         return returnValue;
     }
 
