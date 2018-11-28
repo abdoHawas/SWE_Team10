@@ -1,3 +1,4 @@
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ public class Main {
             //Prompt user:
             output("Select your choice:");
             for (int i = 0; i < options.length; i++){
-                output("" + i + ". " + options[i]);
+                output("" + (i+1) + ". " + options[i]);
             }
             int choice = inputInteger();
             checkChoice(choice);
@@ -197,6 +198,16 @@ public class Main {
 
     //ID 20160127
     boolean isPalindrome(String a){
+    	
+    	int n = a.length()-1;
+		for (int i = 0 ; i < n ; i++)
+		{
+			if(a.charAt(i) != a.charAt(n))
+			{
+				return false ;
+			}
+			n--;
+		}
         // You can convert to array to do your operations
         // Numbers are also strings :)
         return true;
