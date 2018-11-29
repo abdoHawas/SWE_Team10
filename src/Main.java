@@ -220,8 +220,44 @@ public class Main {
     }
 
     //ID 20160233
-    int findSmallestPrime(int[] a){
-        return 0;
+    int findSmallestPrime(int[] a)
+	{
+        int small = -1;
+		Vector<Integer> primes = new Vector<>();
+		for(int i = 0 ; i < a.length ; i++ )
+		{
+			if(a[i]== 2 )
+			{
+				primes.add(a[i]);
+				continue;
+			}
+			for(int j = 1 ; j < a[i] ; j++)
+			{
+				if(a[i] % j == 0 && j != a[i] )
+				{
+					continue;
+				}
+				else
+				{
+					primes.add(a[i]);
+					break;
+				}
+			}
+		}
+		
+		if(primes.size() != 0)
+		{
+			Collections.sort(primes);
+			small =primes.get(0);
+			System.out.println("smallest prime is : " + small);
+		}
+		
+		else
+		{
+			System.out.println("no prime found");
+		}
+		
+        return small;
     }
 
     //ID 20160266
