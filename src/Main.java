@@ -1,6 +1,8 @@
 
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Main {
     Scanner in = new Scanner(System.in);
@@ -65,7 +67,17 @@ public class Main {
                 break;
             case 5:
                 inputArray = inputIntegerArray();
-                output(findSmallestPrime(inputArray));
+                if(findSmallestPrime(inputArray) != -1)
+                {
+                	System.out.print("Smallest prime : ");
+                	output(findSmallestPrime(inputArray));
+                }
+                else
+                {
+                	output(findSmallestPrime(inputArray));
+                	System.out.println("no prime found");
+				}
+
                 break;
             case 6:
                 inputString = inputCharacterArray();
@@ -173,8 +185,10 @@ public class Main {
         System.out.println();
     }
 
-    void output(int value){
-        System.out.println(value);
+    void output(int value)
+    {
+
+    	System.out.println(value);
     }
 
     void output(double value){
@@ -198,7 +212,7 @@ public class Main {
 
     //ID 20160127
     boolean isPalindrome(String a){
-    	
+
     	int n = a.length()-1;
 		for (int i = 0 ; i < n ; i++)
 		{
@@ -237,16 +251,17 @@ public class Main {
 		Vector<Integer> primes = new Vector<>();
 		for(int i = 0 ; i < a.length ; i++ )
 		{
-			if(a[i]== 2 )
+			if(a[i]== 2 || a[i] == 3 )
 			{
 				primes.add(a[i]);
 				continue;
 			}
-			for(int j = 1 ; j < a[i] ; j++)
+
+			for(int j = 1 ; j < (a[i] / 2)  ; j++)
 			{
-				if(a[i] % j == 0 && j != a[i] )
+				if(a[i] % j == 0 )
 				{
-					continue;
+					break;
 				}
 				else
 				{
@@ -255,19 +270,13 @@ public class Main {
 				}
 			}
 		}
-		
+
 		if(primes.size() != 0)
 		{
 			Collections.sort(primes);
 			small =primes.get(0);
-			System.out.println("smallest prime is : " + small);
 		}
-		
-		else
-		{
-			System.out.println("no prime found");
-		}
-		
+
         return small;
     }
 
