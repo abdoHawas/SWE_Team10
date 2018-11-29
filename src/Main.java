@@ -1,3 +1,4 @@
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ public class Main {
             //Prompt user:
             output("Select your choice:");
             for (int i = 0; i < options.length; i++){
-                output("" + i + ". " + options[i]);
+                output("" + (i+1) + ". " + options[i]);
             }
             int choice = inputInteger();
             checkChoice(choice);
@@ -197,6 +198,16 @@ public class Main {
 
     //ID 20160127
     boolean isPalindrome(String a){
+    	
+    	int n = a.length()-1;
+		for (int i = 0 ; i < n ; i++)
+		{
+			if(a.charAt(i) != a.charAt(n))
+			{
+				return false ;
+			}
+			n--;
+		}
         // You can convert to array to do your operations
         // Numbers are also strings :)
         return true;
@@ -323,7 +334,25 @@ public class Main {
 
     //ID 20160316
     int countPrimes(int[] a){
-        return 0;
+        int counter = 0;
+        boolean flag = true;
+        for (int i = 0; i < a.length; i++) {
+            flag = true;
+            int n = a[i];
+            for (int j = 2; j <= n / 2; ++j) {
+                if (n % j == 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            if ((n == 0) || (n == 1)) {
+                flag = false;
+            }
+            if (flag) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     //ID 20160157
