@@ -1,8 +1,11 @@
 
 import java.util.Collections;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
+
+
 
 public class Main {
     Scanner in = new Scanner(System.in);
@@ -38,12 +41,13 @@ public class Main {
             //Prompt user:
             output("Select your choice:");
             for (int i = 0; i < options.length; i++){
-                output("" + (i+1) + ". " + options[i]);
+                output("" + i + ". " + options[i]);
             }
             int choice = inputInteger();
             checkChoice(choice);
         }
     }
+
 
     void checkChoice(int choice){
         int[] inputArray;
@@ -76,7 +80,7 @@ public class Main {
                 {
                 	output(findSmallestPrime(inputArray));
                 	System.out.println("no prime found");
-				}
+				        }
 
                 break;
             case 6:
@@ -109,7 +113,7 @@ public class Main {
                 break;
             case 13:
                 inputArray = inputIntegerArray();
-                output(getMaximum3Numbers(inputArray));
+                output(getMinimum3Numbers(inputArray));
                 break;
             case 14:
                 inputArray = inputIntegerArray();
@@ -340,6 +344,44 @@ public class Main {
         int[] returnValue = new int[0];;
         return returnValue;
     }
+  
+  //20160359
+	public static int[] getMaximum3Numbers(String inputString) {
+		//	System.out.println(inputString);
+			String[] str_array= inputString.split(" ");
+			
+			int[] arr= new int [str_array.length];
+			int []max_nums = new int [3];
+			String s="";
+			int f=0;
+			for(int i=0;i<str_array.length;i++) {
+				s=str_array[i];
+				if((str_array[i].toCharArray()[0]>='a'&& str_array[i].toCharArray()[0]<='z') || 
+						(str_array[i].toCharArray()[0]>='A'&& str_array[i].toCharArray()[0]<='Z' ) ){
+					f=1;
+				System.out.println("Array must be numbers only");
+				break;
+				}
+				else {
+					
+					arr[i]= Integer.parseInt(str_array[i]);
+					
+			int max_number=arr[arr.length-1];
+			
+			}
+				
+				}
+		//	arr=sort(arr); 
+			Arrays.sort(arr);
+			max_nums[0]=arr[arr.length-1];
+			max_nums[1]=arr[arr.length-2];
+			max_nums[2]=arr[arr.length-3];	
+			if(f!=1) {
+			System.out.println(max_nums[2] + " -- " + max_nums[1] + " -- " + max_nums[0]);
+			}
+			return max_nums;
+	
+		}
 
     //ID 20160316
     int countPrimes(int[] a){
@@ -362,16 +404,5 @@ public class Main {
             }
         }
         return counter;
-    }
-
-    //ID 20160157
-    double getAverage(int[] a){
-        return 0;
-    }
-
-    //ID 20160359
-    int[] getMaximum3Numbers(int[] a){
-        int[] returnValue = new int[0];;
-        return returnValue;
     }
 }
