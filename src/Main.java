@@ -336,7 +336,33 @@ public class Main {
 
     //ID 20160170
     int findLargestPrime(int[] a){
-        return 0;
+           int small = -1;
+     int p , d ;
+		Vector<Integer> primes = new Vector<>();
+		for(int i = 0 ; i < a.length ; i++ )
+		{
+                    p = 1 ;
+                    d = 2 ;
+                    while(d<=a[i]/2)
+                    {
+                    if(a[i]%d==0)
+                    {
+                        p=0;
+                        break ;
+                    }
+                    d++ ;
+                }
+                    if(p==1)
+                    {
+                        primes.add(a[i]);
+                    } 
+                }
+		if(primes.size() != 0)
+		{
+			Collections.sort(primes);
+			small =primes.get(primes.size()-1);
+		}
+        return small;  
     }
 
     //ID 20160313
