@@ -233,8 +233,18 @@ public class Main {
 
     //ID 20160249
     int[] zeroIfLessThanZero(int[] a){
-        int[] returnValue = new int[0];
-        return returnValue;
+	for(int i =0 ; i<a.length;i++) {
+	            
+				if(a[i]<0) {
+	
+					a[i] = 0;
+	
+				}
+	
+				System.out.print(a[i] + " "); // this line for confirming the output if u want to delete it np ^^
+
+		}
+        return a;
     }
 
     //ID 20160171
