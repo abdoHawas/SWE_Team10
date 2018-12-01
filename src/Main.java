@@ -316,8 +316,26 @@ public class Main {
     }
 
     //ID 20160037
-    int mostRepeatedValue(int[] a){
-        return 0;
+    public static int mostRepeatedValue(int []a)
+    {
+        int MostRepeated=a[0],temp;
+        int count =1,tempcount;
+        for(int i=0 ; i<a.length-1 ; i++)
+        {
+            temp=a[i];
+            tempcount=0;
+            for(int j=1 ; j<a.length ; j++)
+            {
+                if (temp==a[j])
+                    tempcount++;
+            }
+            if(tempcount>count)
+            {
+                MostRepeated=temp;
+                count=tempcount;
+            }
+        }
+        return MostRepeated;
     }
 
     //ID 20160473
