@@ -358,8 +358,33 @@ public class Main {
 
     //ID 20160324
     int[] getMinimum3Numbers(int[] a){
-        int[] returnValue = new int[0];;
-        return returnValue;
+        
+    	int  returnValue [] = new int [3];
+
+    	for(int i=0; i<a.length-1; i++) {
+    		for(int j=a.length-1; j>i; j--) { /*Bubble Sort*/
+    			if((a[j] < a[j-1])) {
+    				int temp = a[j];
+    				a[j] = a[j-1];
+    				a[j-1] = temp;
+    			}
+    		}
+    	}
+
+    	int count = 0;
+    	for(int i=1; i<a.length-1; i++) {
+    		if(count == 3)
+    			break;
+    		else {
+    			if(a[i-1] == a[i])
+    				continue;
+    			returnValue[count] = a[i-1];
+    			count++;
+    		}                         /* O(n^2 + n - 1)  ===>(O(n^2)) */
+    	}
+
+    	return returnValue; /*  Done  !  Minimum 3 Numbers in the array with eliminating duplicates. */   
+
     }
 
     //ID 20160170
