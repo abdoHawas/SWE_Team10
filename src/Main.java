@@ -314,7 +314,13 @@ public class Main {
 
 	// ID 20160042
 	boolean checkSorted(int[] a) {
-		return true;
+		 for(int i=0 ; i<a.length-1 ;  i++)
+	       {
+	       if(a[i]>a[i+1])
+	           return false;
+	           }
+
+	        return true;
 	}
 
 	// ID 20160054
