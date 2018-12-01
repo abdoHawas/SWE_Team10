@@ -448,4 +448,55 @@ public class Main {
         }
         return counter;
     }
+	//20160266
+	void GetMedian(int[] a) {
+        List<Integer> MyList = new ArrayList<Integer>();
+        String temp="";
+        for (int i=0; i<text.length(); i++) 
+	{
+            if (text.charAt(i)==' ' || text.charAt(i)==',')
+            {
+                int x= Integer.parseInt(temp);
+                System.out.println(x);
+                MyList.add(x);
+                temp="";
+            }
+            else {
+            temp +=text.charAt(i);
+            }
+            if (i==text.length()-1)
+            {
+                int x= Integer.parseInt(temp);
+                System.out.println(x);
+                MyList.add(x);
+            }
+        }
+        System.out.println(MyList);
+        int size = MyList.size();
+        int myArr[] = new int[size];
+        for(int i=0; i<size; i++) {
+            myArr[i] =MyList.get(i);
+        }
+        for (int i = 1, j; i < size; i++) 
+	{
+            int temp2 = myArr [i];
+            for (j = i; j > 0 && temp2 < myArr [j-1]; j--)
+            myArr [j] = myArr [j-1];
+
+            myArr [j] = temp2;
+        }
+        double median;
+        if (size%2==0)
+        {
+            double tmp;
+            tmp=myArr[(size/2)-1]+myArr[size/2];
+            median=(tmp/2.00);
+        }
+        else
+        {
+            median=myArr[(size-1)/2];
+        }
+        System.out.println(median);
+    }
+}
 }
