@@ -495,19 +495,3 @@ public class Main {
 }
 
 
-	//20160056
-	public static int[] shiftArray(int[] Arr){
-		int[] temp = new int[Arr.length];
-		for(int i = 0;i < Arr.length;i++){
-			if(i != Arr.length - 1){
-				temp[i+1] = Arr[i];
-			}
-			else{
-				temp[0] = Arr[i];
-				}
-				
-		}
-		Arr = temp;
-		return Arr;
-	}
-
