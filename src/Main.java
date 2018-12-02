@@ -484,3 +484,30 @@ public class Main {
         return median;
     }
 }
+	//20160157
+	public static int getAverage(int[] Arr){
+	int avg = 0;
+	for(int i = 0;i < Arr.length;i++){
+		avg += Arr[i];
+	}
+	return avg;
+	
+}
+
+
+	//20160056
+	public static int[] shiftArray(int[] Arr){
+		int[] temp = new int[Arr.length];
+		for(int i = 0;i < Arr.length;i++){
+			if(i != Arr.length - 1){
+				temp[i+1] = Arr[i];
+			}
+			else{
+				temp[0] = Arr[i];
+				}
+				
+		}
+		Arr = temp;
+		return Arr;
+	}
+
