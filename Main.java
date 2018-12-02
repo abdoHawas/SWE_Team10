@@ -305,11 +305,15 @@ public class Main {
 		return MostRepeated;
 	}
 
-	// ID 20160473
+	// ID 20120473
 	int[] reverseArray(int[] a) {
-		int[] returnValue = new int[0];
-		;
-		return returnValue;
+		int[] returnValue = new int[a.length];
+		        int length = a.length-1;
+		        for ( int i = 0 ; i < a.length  ; i++ ){
+		        	returnValue [i] = a[length];
+		        	length--;
+		        }
+	        return returnValue;
 	}
 
 	// ID 20160042
